@@ -50,8 +50,8 @@ const HomePage = ({ initialMoviesData }: HomePageProps) => {
     }
   }, [checked])
 
-  const observer = useRef();
-  const lastElement = useCallback(node => {
+  const observer = useRef<any>();
+  const lastElement = useCallback((node: any) => {
     if (observer.current) {
         observer.current.disconnect();
     }
@@ -95,7 +95,7 @@ const HomePage = ({ initialMoviesData }: HomePageProps) => {
       </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {
-          movies.results.map((item, index) => {
+          movies.results.map((item: any, index: number) => {
             return(
               <MovieCard
                 ref={index === movies.results.length - 1 ? lastElement : null}
